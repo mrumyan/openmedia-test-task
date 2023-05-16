@@ -18,9 +18,13 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(scss|css)$/,
+                test: /\.(scss|css)$/i,
                 use: ["style-loader", "css-loader", "sass-loader"]
-            }
+            },
+            {
+                test: /\.(?:ico|png|jpg|jpeg|svg)$/i,
+                type: "asset/inline"
+            },
         ]
     },
     devServer: {

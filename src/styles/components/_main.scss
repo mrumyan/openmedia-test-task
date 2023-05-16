@@ -1,0 +1,85 @@
+@import "../base/mixins";
+@import "../base/variables";
+
+.main {
+    padding: 12px;
+    background: $dark-secondary;
+}
+
+.promo {
+    @include flex-row;
+    width: 100%;
+    padding: 40px;
+    background: $light-secondary;
+
+    &__info {
+        @include flex-column;
+        max-width: 492px;
+    }
+
+    &__title {
+        margin-bottom: 24px;
+    }
+
+    &__description {
+        @include flex-column;
+    }
+
+    &__subtitle {
+        margin-bottom: 182px;
+    }
+
+    &__form {
+        align-self: center;
+        padding-left: 112px;
+        padding-right: 208px;
+    }
+}
+
+.terms {
+    @include flex-row(5px);
+    justify-content: flex-start;
+
+    &__text,
+    &__link {
+        @include font(1.2rem, 1.6rem, -0.03rem);
+        color: $dark-secondary;
+    }
+
+    &__text {
+        font-weight: 300;
+    }
+}
+
+.form {
+    @include flex-column(20px);
+
+    &__title {
+        color: $dark-secondary;
+    }
+
+    &__input {
+        position: relative;
+    }
+
+    &__input::after {
+        content: "";
+        cursor: pointer;
+        @include absolute-position(0, 524px);
+        width: 96px;
+        height: 96px;
+        background: $accent url(./../assets/icons/arrow.svg) no-repeat center;
+    }
+
+    &__text {
+        width: 524px;
+        height: 96px;
+        padding: 32px 16px;
+        background: $white;
+        text-overflow: ellipsis;
+    }
+
+    &__text::placeholder {
+        color: $placeholder;
+    }
+}

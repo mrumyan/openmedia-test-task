@@ -1,0 +1,26 @@
+@mixin flex-row($gap: 0) {
+    display: flex;
+    justify-content: space-between;
+    gap: $gap;
+}
+
+@mixin flex-column($gap: 0) {
+    @include flex-row($gap);
+    flex-direction: column;
+}
+
+@mixin absolute-position($top: 0, $left: 0) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+
+@mixin font($font-size, $line-height, $letter-spacing) {
+    font: {
+        weight: 400;
+        size: $font-size;
+    }
+
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+}
