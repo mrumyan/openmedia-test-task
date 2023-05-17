@@ -6,10 +6,13 @@
     background: $dark-secondary;
 }
 
+.wrapper {
+    padding: 40px;
+}
+
 .promo {
     @include flex-row;
     width: 100%;
-    padding: 40px;
     background: $light-secondary;
 
     &__info {
@@ -66,9 +69,12 @@
         content: "";
         cursor: pointer;
         @include absolute-position(0, 524px);
-        width: 96px;
-        height: 96px;
+        @include square(96px);
         background: $accent url(./../assets/icons/arrow.svg) no-repeat center;
+    }
+
+    &__input:hover::after {
+        opacity: 0.7;
     }
 
     &__text {
@@ -81,5 +87,139 @@
 
     &__text::placeholder {
         color: $placeholder;
+    }
+}
+
+.about {
+    @include flex-column(120px);
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    &__algorithm {
+        @include flex-row(36px);
+    }
+
+    &__description {
+        @include flex-column(40px);
+    }
+
+    &__title {
+        color: $light-primary;
+    }
+
+    &__text {
+        color: $light-secondary;
+    }
+
+    &__scheme {
+        min-width: 628px;
+    }
+}
+
+.scheme {
+    @include flex-row;
+    align-items: center;
+
+    &__square {
+        position: relative;
+        @include square(92px);
+        background: $accent;
+        margin-right: 423px;
+    }
+
+    &__square::before,
+    &__square::after,
+    &__item:first-child::before,
+    &__item:last-child::before {
+        content: "";
+        border-bottom: 1px dashed $line;
+        background: transparent;
+    }
+
+    &__square::before {
+        @include absolute-position(50%, 100%);
+        width: 276px;
+        height: 0;
+    }
+
+    &__square::after {
+        @include absolute-position(-20px, 368px);
+        width: 0;
+        height: 136.5px;
+        border: none;
+        border-left: 1px dashed $line;
+    }
+
+    &__item {
+        position: relative;
+        @include square(112px);
+        background: $icon no-repeat center;
+    }
+
+    &__item:first-child {
+        margin-bottom: 25px;
+        background-image: url(./../assets/icons/aws.svg);
+    }
+
+    &__item:first-child::before,
+    &__item:last-child::before {
+        @include absolute-position(50%, -147px);
+        width: 147px;
+        height: 0;
+    }
+
+    &__item:last-child {
+        background-image: url(./../assets/icons/cloud.svg);
+        background-position-y: 24px;
+    }
+}
+
+.requirements {
+    &__subtitle {
+        margin-bottom: 40px;
+        color: $light-primary;
+    }
+
+    &__server-types {
+        @include flex-row(16px);
+        justify-content: flex-start;
+        margin-bottom: 32px;
+    }
+
+    &__server-type {
+        cursor: pointer;
+        color: $inactive;
+        opacity: 0.4;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &_active {
+            pointer-events: none;
+            padding-bottom: 2px;
+            border-bottom: 1px solid $light-secondary;
+            color: $light-primary;
+            opacity: 1;
+        }
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(auto, 644px));
+        justify-content: space-between;
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 12px 8px 12px 0;
+        border-bottom: 1px solid rgba(207, 211, 214, 0.1);
+        font-weight: 300;
+        color: $light-secondary;
+    }
+
+    &__details {
+        min-width: 386px;
     }
 }

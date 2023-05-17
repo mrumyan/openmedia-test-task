@@ -10,11 +10,11 @@
 
 <body>
     <main class="main">
-        <section class="promo">
+        <section class="promo wrapper">
             <div class="promo__info">
                 <h1 class="promo__title">Play any audio sources directly in the browser!</h1>
                 <div class="promo__description">
-                    <h2 class="promo__subtitle">Without any restrictions for free</h2>
+                    <p class="promo__subtitle">Without any restrictions for free</p>
                     <div class="promo__terms terms">
                         <p class="terms__text">By uploading the audio file, you agree to our</p>
                         <a class="terms__link" href="#!">Terms of Service.</a>
@@ -25,6 +25,55 @@
                 <label class="form__title" for="form">Insert the link</label>
                 <div class="form__input">
                     <input class="form__text" type="url" name="form" id="form" placeholder="https://" value="">
+                </div>
+            </div>
+        </section>
+        <section class="about wrapper">
+            <div class="about__algorithm">
+                <div class="about__description">
+                    <h2 class="about__title">How It Works</h2>
+                    <p class="about__text">Lorem Ipsum is a "fish" text often used in print and web design. Lorem Ipsum
+                        has been the standard "fish" for Latin texts since the early 16th century. At that time, an
+                        unnamed printer created a large collection of font sizes and shapes, using Lorem Ipsum for print
+                        samples.</p>
+                </div>
+                <div class="about__scheme scheme">
+                    <div class="scheme__square"></div>
+                    <div class="scheme__tools">
+                        <div class="scheme__item"></div>
+                        <div class="scheme__item"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="about__requirements requirements">
+                <h3 class="requirements__subtitle">Technical requirements</h3>
+                <div class="requirements__properties">
+                    <ul class="requirements__server-types">
+                        <li class="requirements__server-type requirements__server-type_active">Own server</li>
+                        <li class="requirements__server-type">Amazon Instance</li>
+                    </ul>
+                    <ul class="requirements__items">
+                        <li class="requirements__item">
+                            <span class="requirements__feature">OS + apps</span>
+                            <span class="requirements__details">Unix/OSX + docker + nvidia-docker</span>
+                        </li>
+                        <li class="requirements__item">
+                            <span class="requirements__feature">Free space</span>
+                            <span class="requirements__details">100 GB of free space</span>
+                        </li>
+                        <li class="requirements__item">
+                            <span class="requirements__feature">CPU</span>
+                            <span class="requirements__details">4 cores or more (e.g. intel core i5)</span>
+                        </li>
+                        <li class="requirements__item">
+                            <span class="requirements__feature">Graphics hardware</span>
+                            <span class="requirements__details">GPU: NVidia only 2Gb+</span>
+                        </li>
+                        <li class="requirements__item">
+                            <span class="requirements__feature">Memory</span>
+                            <span class="requirements__details">16 GB RAM</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>

@@ -17,18 +17,6 @@ body {
     @include font(2.4rem, 3.2rem, -0.04rem);
 }
 
-h1 {
-    @include font(4.8rem, 5.2rem, -0.1rem);
-    color: $dark-primary;
-}
-
-h2,
-input {
-    @include font(2.4rem, 3.2rem, -0.04rem);
-    font-weight: 300;
-    color: $dark-secondary;
-}
-
 input {
     border: none;
     font-family: "Space Grotesk", sans-serif;
@@ -36,4 +24,26 @@ input {
 
 a {
     text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+h1,
+h2 {
+    @include font(4.8rem, 5.2rem, -0.1rem);
+    color: $dark-primary;
+}
+
+h3 {
+    @include font(2.4rem, 3.2rem, -0.04rem);
+}
+
+p,
+input {
+    @extend h3;
+    font-weight: 300;
+    color: $dark-secondary;
 }

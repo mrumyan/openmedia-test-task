@@ -15,6 +15,11 @@
     left: $left;
 }
 
+@mixin square($size: 0) {
+    width: $size;
+    height: $size;
+}
+
 @mixin font($font-size, $line-height, $letter-spacing) {
     font: {
         weight: 400;
