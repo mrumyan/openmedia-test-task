@@ -35,6 +35,10 @@ h1,
 h2 {
     @include font(4.8rem, 5.2rem, -0.1rem);
     color: $dark-primary;
+
+    @include media-mobile-l {
+        @include font(3.6rem, 4rem, -0.04rem);
+    }
 }
 
 h3 {

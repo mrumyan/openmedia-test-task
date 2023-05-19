@@ -29,3 +29,27 @@
     line-height: $line-height;
     letter-spacing: $letter-spacing;
 }
+
+@mixin media-laptop {
+    @media only screen and (max-width: $laptop) {
+        @content;
+    }
+}
+
+@mixin media-tablet {
+    @media only screen and (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin media-mobile-xl {
+    @media only screen and (max-width: $mobile-xl) {
+        @content;
+    }
+}
+
+@mixin media-mobile-l {
+    @media only screen and (max-width: $mobile-l) {
+        @content;
+    }
+}
