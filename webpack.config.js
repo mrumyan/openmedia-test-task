@@ -8,7 +8,7 @@ const srcPath = path.resolve(__dirname, "src");
 module.exports = {
     entry: {
         index: [
-            path.join(srcPath, "index.js"),
+            path.join(srcPath, "index.tsx"),
             path.join(srcPath, "styles", "style.scss")
         ]
     },
@@ -29,7 +29,7 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
             },
             {
-                test: /\.jsx?/,
+                test: /\.[tj]sx?$/,
                 use: "babel-loader"
             },
             {
@@ -39,10 +39,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [".js", ".jsx"],
+        extensions: [".tsx", ".ts", ".js", ".jsx"],
     },
     devServer: {
-        host: "localhost",
+        host: "127.0.0.1",
         port: 3000,
         hot: true
     }

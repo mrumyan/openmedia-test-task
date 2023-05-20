@@ -5,7 +5,8 @@ module.exports = api => {
         "@babel/preset-env",
         ["@babel/preset-react", {
             "runtime": "automatic"
-        }]
+        }],
+        "@babel/preset-typescript",
     ];
 
     return {

@@ -1,0 +1,9 @@
+.player {
+    &__back {
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
