@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+
+import AudioControls from "../AudioControls/AudioControls";
 
 import { useLink } from "../../context/LinkContext";
 
@@ -10,7 +12,7 @@ const AudioPlayer: React.FC = () => {
     return (
         <>
             <Link className="player__back" to="/">← Back</Link>
-            <audio src={audioSrc} controls autoPlay />
+            {audioSrc ? <AudioControls /> : <Navigate to="/" replace />}
         </>
     );
 };

@@ -55,7 +55,6 @@
         cursor: pointer;
         flex-shrink: 0;
         @include square(96px);
-        border: none;
         background: $accent url(../../assets/icons/arrow.svg) no-repeat center;
 
         @include media-mobile-l {

@@ -1,0 +1,126 @@
+@import "../../styles/base/mixins";
+@import "../../styles/base/variables";
+
+.controls {
+    display: grid;
+    grid-template-columns: 40px 1fr 252px;
+    grid-template-areas: "play . ."
+        "progress progress progress"
+        "duration . volume";
+    gap: 45px;
+    align-items: end;
+    width: 620px;
+    height: 198px;
+    padding: 20px;
+    background: $inactive;
+
+    &__controls {
+        display: grid;
+        grid-template-columns: 40px 1fr 252px;
+        grid-template-areas: "play . ."
+            "progress progress progress"
+            "duration . volume";
+        gap: 45px;
+        width: 620px;
+        height: 198px;
+        padding: 20px;
+        background: $inactive;
+    }
+
+    &__play {
+        grid-area: play;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: url(../../assets/icons/play.svg) no-repeat center;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &_paused {
+            cursor: pointer;
+            width: 32px;
+            height: 40px;
+            background: url(../../assets/icons/pause.svg) no-repeat center;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    &__progress {
+        grid-area: progress;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 580px;
+        height: 2px;
+        background: #ADACAD;
+        background: linear-gradient(to right, $white 2%, #ADACAD 2%);
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: $white;
+
+            &:hover {
+                box-shadow: 0 0 0 4px rgba($white, 0.05);
+            }
+        }
+    }
+
+    &__duration {
+        grid-area: duration;
+        @include font(1.2rem, 1.6rem, -0.03rem);
+        color: $dark-secondary;
+    }
+
+    &__volume {
+        grid-area: volume;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 252px;
+        height: 2px;
+        outline: none;
+        background: linear-gradient(to right, $dark-primary 50%, $white 50%);
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 12px;
+            border: none;
+            background-color: $dark-primary;
+
+            &:hover {
+                box-shadow: 0 0 0 4px rgba($dark-primary, 0.05);
+            }
+        }
+
+        &::-webkit-slider-runnable-track {
+            background: linear-gradient(var(--track-color) 0 0) scroll no-repeat center / 100% calc(var(--track-height) + 1px);
+        }
+
+        &::-moz-range-thumb {
+            width: 16px;
+            height: 12px;
+            border: none;
+            border-radius: 0;
+            background-color: $dark-primary;
+
+            &:hover {
+                box-shadow: 0 0 0 4px rgba($dark-primary, 0.05);
+            }
+        }
+    }
+}
