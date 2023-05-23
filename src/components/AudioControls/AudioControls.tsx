@@ -8,9 +8,9 @@ import AudioDuration from "./components/AudioDuration/AudioDuration";
 import AudioPlayButton from "./components/AudioPlayButton/AudioPlayButton";
 import AudioProgress from "./components/AudioProgress/AudioProgress";
 import AudioVolume, { MAX_VOLUME } from "./components/AudioVolume.tsc/AudioVolume";
+import Loader from "../Loader/Loader";
 
 import "./audioControls.scss";
-import Loader from "../Loader/Loader";
 
 const AudioControls: React.FC = () => {
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
