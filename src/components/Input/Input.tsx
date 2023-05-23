@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import cn from "classnames";
+
 import { useLink } from "../../context/LinkContext";
+import { validateUrl } from "../../utils/url";
 
 import "./input.scss";
+import Loader from "../Loader/Loader";
 
 type InputProps = {
     handleChange: (link: string) => void;
@@ -12,54 +16,41 @@ type InputProps = {
 const Input: React.FC<InputProps> = ({ handleChange }) => {
     const [navigateLink, setNavigateLink] = useState<string>("/");
     const [error, setError] = useState<string>("");
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const audioSrc: string = useLink();
 
-    const isUrlValid = async (): Promise<boolean> => {
-        let isValid: boolean = false;
-        try {
-            const url: URL = new URL(audioSrc);
-            isValid = /^(https?:)/.test(url.protocol);
-            if (isValid) {
-                const contentType = await getContentType();
-                isValid = !!contentType && contentType.startsWith("audio");
-                setError(isValid ? "" : "This's not an audio");
-            } else {
-                setError("URL is invalid");
-            }
-        } catch (error: any) {
-            isValid = false;
-            setError(error.message);
-        } finally {
-            return isValid;
-        }
-    };
-
-    const getContentType = async (): Promise<string | null> => {
-        const response = await fetch(audioSrc, { method: "HEAD" });
-        if (response && !response.ok) {
-            setError(`Request is failed with ${response.status} error`);
-            return null;
-        } else {
-            return response.headers.get("Content-Type");
-        }
-    };
-
-    const handleClick = async () => {
-        const isLinkValid = await isUrlValid();
-        setNavigateLink(isLinkValid ? "/player" : "/");
-    };
+    const inputWrapperClass = cn(
+        "form__input-wrapper", {
+        "form__input-wrapper_invalid": error,
+    });
 
     let navigate = useNavigate();
     useEffect(() => {
         navigate(navigateLink)
     }, [navigateLink]);
 
+    const resetError = () => setError("");
+
+    const handleClick = async () => {
+        try {
+            setIsLoading(true);
+            await validateUrl(audioSrc);
+            resetError();
+            setNavigateLink("/player");
+        } catch (error: any) {
+            setError(error.message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <>
             <label className="form__title">Insert the link</label>
             <div className="form__input">
-                <div className={error ? "form__input-wrapper form__input-wrapper_invalid" : "form__input-wrapper"}>
+                <div className={inputWrapperClass}>
+                    {isLoading && <Loader className="loader_colored" />}
                     <input className="form__text" placeholder="https://" type="url" id="link" name="link" value={audioSrc} onChange={(event) => handleChange(event.target.value)} />
                 </div>
                 <button className="form__button" onClick={handleClick}></button>

@@ -14,7 +14,9 @@
     }
 
     &__input-wrapper {
+        position: relative;
         width: 100%;
+        overflow: hidden;
 
         &_invalid {
             position: relative;
@@ -28,6 +30,10 @@
                 @include absolute-position(35%, 92%);
                 width: 24px;
                 height: 24px;
+
+                @include media-mobile-l {
+                    @include absolute-position(35%, 88%);
+                }
             }
         }
     }
@@ -44,6 +50,7 @@
 
         @include media-mobile-l {
             height: 64px;
+            padding: 0 65px 0 16px;
         }
     }
 

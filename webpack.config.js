@@ -18,6 +18,7 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({
+            favicon: path.join(srcPath, "assets", "favicon.ico"),
             template: path.join(srcPath, "index.html")
         }),
         new MiniCssExtractPlugin()

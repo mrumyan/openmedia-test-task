@@ -1,0 +1,26 @@
+.controls {
+    &__play {
+        grid-area: play;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: url(../../../../assets/icons/play.svg) no-repeat center;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &_paused {
+            cursor: pointer;
+            width: 32px;
+            height: 40px;
+            border: none;
+            background: url(../../../../assets/icons/pause.svg) no-repeat center;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
