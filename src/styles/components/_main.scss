@@ -1,0 +1,327 @@
+@import "../base/mixins";
+@import "../base/variables";
+
+.main {
+    padding: 12px;
+    background: $dark-secondary;
+
+    @include media-mobile-xl {
+        padding: 0;
+    }
+}
+
+.wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px;
+
+    @include media-mobile-xl {
+        padding: 0 12px;
+    }
+}
+
+.promo {
+    background: $light-secondary;
+
+    &__wrapper {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: minmax(245px, 492px) 1fr;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: "title       form"
+            "description form";
+
+        @include media-laptop {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-areas: "title"
+                "form"
+                "description";
+        }
+
+        @include media-mobile-xl {
+            grid-template-rows: repeat(2, 1fr) 112px;
+            gap: 38px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+
+    &__title {
+        grid-area: title;
+    }
+
+    &__description {
+        grid-area: description;
+        @include flex-column;
+
+        @include media-laptop {
+            justify-content: flex-end;
+        }
+
+        @include media-mobile-l {
+            justify-content: flex-start;
+        }
+    }
+
+    &__subtitle {
+        margin-bottom: 182px;
+
+        @include media-laptop {
+            margin-bottom: 0;
+        }
+
+        @include media-mobile-xl {
+            margin-bottom: 12px;
+        }
+    }
+
+    &__form {
+        grid-area: form;
+        @include flex-column(20px);
+        justify-content: center;
+        padding: 0 10.8%;
+
+        @include media-laptop {
+            padding: 0;
+        }
+    }
+}
+
+.terms {
+    @include flex-row(5px);
+    justify-content: flex-start;
+
+    @include media-laptop {
+        flex-direction: column;
+    }
+
+    &__text,
+    &__link {
+        @include font(1.2rem, 1.6rem, -0.03rem);
+        color: $dark-secondary;
+    }
+
+    &__text {
+        font-weight: 300;
+    }
+
+    &__link {
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+.about {
+    @include flex-column(120px);
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    @include media-mobile-xl {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    &__algorithm {
+        @include flex-row(36px);
+
+        @include media-laptop {
+            flex-direction: column;
+        }
+    }
+
+    &__description {
+        @include flex-column(40px);
+    }
+
+    &__title {
+        color: $light-primary;
+    }
+
+    &__text {
+        color: $light-secondary;
+    }
+}
+
+.scheme {
+    @include flex-row;
+    justify-content: center;
+    align-items: center;
+
+    &__square {
+        position: relative;
+        @include square(92px);
+        background: $accent;
+        margin-right: 424px;
+
+        @include media-tablet {
+            margin-right: 220px;
+        }
+
+        @include media-mobile-xl {
+            @include square(49px);
+            margin-right: 187px;
+        }
+    }
+
+    &__square::before,
+    &__square::after,
+    &__item:first-child::before,
+    &__item:last-child::before {
+        content: "";
+        height: 0;
+        border-bottom: 1px dashed $line;
+        background: transparent;
+    }
+
+    &__square::before {
+        @include absolute-position(50%, 100%);
+        width: 276px;
+
+        @include media-tablet {
+            width: 138px;
+        }
+
+        @include media-mobile-xl {
+            width: 130px;
+        }
+    }
+
+    &__square::after {
+        @include absolute-position(46px, 300px);
+        width: 136.5px;
+        transform: rotate(90deg);
+
+        @include media-tablet {
+            left: 164px;
+        }
+
+        @include media-mobile-xl {
+            width: 133.55px;
+            left: 113px;
+            top: 50%;
+        }
+    }
+
+    &__item {
+        position: relative;
+        @include square(112px);
+        background: $icon no-repeat center center;
+
+        @include media-mobile-xl {
+            @include square(60px);
+            background-size: 75%;
+        }
+    }
+
+    &__item:first-child {
+        margin-bottom: 25px;
+        background-image: url(./../assets/icons/aws.svg);
+
+        @include media-mobile-xl {
+            margin-bottom: 73.5px;
+        }
+    }
+
+    &__item:first-child::before,
+    &__item:last-child::before {
+        @include absolute-position(50%, -147px);
+        width: 147px;
+
+        @include media-tablet {
+            width: 73.5px;
+            left: -76px;
+        }
+
+        @include media-mobile-xl {
+            width: 50px;
+            left: -53px;
+        }
+    }
+
+    &__item:last-child {
+        background-image: url(./../assets/icons/cloud.svg);
+        background-position-y: 24px;
+
+        @include media-mobile-xl {
+            background-position-y: 12px;
+        }
+    }
+}
+
+.requirements {
+    &__subtitle {
+        margin-bottom: 40px;
+        color: $light-primary;
+    }
+
+    &__server-types {
+        @include flex-row(16px);
+        justify-content: flex-start;
+        align-items: flex-end;
+        margin-bottom: 32px;
+    }
+
+    &__server-type {
+        cursor: pointer;
+        color: $inactive;
+        opacity: 0.4;
+
+        &:first-child {
+            flex-shrink: 0;
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &_active {
+            pointer-events: none;
+            padding-bottom: 2px;
+            border-bottom: 1px solid $light-secondary;
+            color: $light-primary;
+            opacity: 1;
+        }
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(auto, 644px));
+        justify-content: space-between;
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 12px 8px 12px 0;
+        border-bottom: 1px solid rgba(207, 211, 214, 0.1);
+        font-weight: 300;
+        color: $light-secondary;
+
+        @include media-mobile-xl {
+            grid-template-columns: 1fr;
+            gap: 9px;
+        }
+    }
+
+    &__item:nth-child(2n) {
+        @include media-mobile-xl {
+            order: 2;
+        }
+    }
+
+    &__feature {
+        @include media-tablet {
+            margin-right: 20px;
+        }
+    }
+
+    &__details {
+        min-width: 386px;
+
+        @include media-mobile-xl {
+            min-width: 284px;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@import "../../styles/base/mixins";
+@import "../../styles/base/variables";
+
+.controls {
+    display: grid;
+    grid-template-columns: 40px 1fr minmax(191px, 252px);
+    grid-template-areas: "play . ."
+        "progress progress progress"
+        "duration . volume";
+    row-gap: 45px;
+    align-items: center;
+    position: relative;
+    max-width: 620px;
+    min-width: 296px;
+    width: 100%;
+    height: 198px;
+    padding: 20px 3%;
+    overflow: hidden;
+    background: $inactive;
+
+    &__controls {
+        display: grid;
+        grid-template-columns: 40px 1fr 252px;
+        grid-template-areas: "play . ."
+            "progress progress progress"
+            "duration . volume";
+        gap: 45px;
+        width: 620px;
+        height: 198px;
+        padding: 20px;
+        background: $inactive;
+    }
+}

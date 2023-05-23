@@ -1,0 +1,46 @@
+@import "../../../../styles/base/mixins";
+@import "../../../../styles/base/variables";
+
+.controls {
+    &__progress {
+        grid-area: progress;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        max-width: 580px;
+        min-width: 256px;
+        width: 100%;
+        height: 2px;
+        background: #ADACAD;
+        background: linear-gradient(to right, $white 0%, #ADACAD 0%);
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: $white;
+
+            &:hover {
+                box-shadow: 0 0 0 4px rgba($white, 0.2);
+            }
+        }
+
+        &::-moz-range-thumb {
+            -moz-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: $white;
+
+            &:hover {
+                box-shadow: 0 0 0 4px rgba($white, 0.2);
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+@import "../../styles/base/mixins";
+@import "../../styles/base/variables";
+
+@keyframes move {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+.loader {
+    width: 45%;
+    height: 4px;
+    @include absolute-position(0, 0);
+    background: $white;
+    animation: move 0.75s linear 0s infinite;
+
+    &_colored {
+        background: $accent;
+    }
+}
